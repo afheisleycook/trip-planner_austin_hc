@@ -1,0 +1,24 @@
+﻿@using trip_planner_austin_hc.Models.viewModels
+@using trip_planner_austin_hc.Models.viewModels
+@model TripViewModel
+@{
+    ViewBag.title = "Add trip - page 2";
+    ViewBag.Subheader = $"info for trip to {Model.Trip.Accommodation}";
+    
+}
+<form asp-action="add">
+    <input type="hidden"
+           asp-for="PageNumber" />
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="Trip.AccommodationEmail">email</label>
+        <input class="form-control" asp-for="Trip.AccommodationEmail" />
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Trip.AccommodationPhone">phone number</label>
+        <input class="form-control" asp-for="Trip.AccommodationPhone" />
+    </div>
+    <button type="submit" class="btn btn-dark">Next</button>
+    <a asp-action="Cancel" class="btn btn-outline-dark">Cancel</a>
+</form>
