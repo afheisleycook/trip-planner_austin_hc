@@ -1,0 +1,39 @@
+﻿@using trip_planner_austin_hc.Models.viewModels
+@model TripViewModel;
+
+@{
+    ViewBag.Title = "Add Trip - Page 1";
+    ViewBag.SubHeader = "Add Trip Destination and Dates";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Add">
+    <input type="hidden"
+           asp-for="PageNumber" />
+
+    <div class="mb-3">
+        <label asp-for="Trip.Destination" class="form-label">Destination</label>
+        <input asp-for="Trip.Destination" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Trip.Accommodation" class="form-label">Accommodations</label>
+        <input asp-for="Trip.Accommodation" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Trip.StartDate" class="form-label">Start Date</label>
+        <input asp-for="Trip.StartDate" class="form-control" type="text" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Trip.EndDate" class="form-label">End Date</label>
+        <input asp-for="Trip.EndDate" class="form-control" type="text" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-dark">Next</button>
+        <a asp-action="Cancel" class="btn btn-outline-dark">Cancel</a>
+    </div>
+</form>
+
