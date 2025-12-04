@@ -10,17 +10,17 @@ namespace TripLog.Controllers
 {
     public class TripController : Controller
     {
-        private Repository<Trip> tripData { get; set; }
-        private Repository<Destination> destinationData { get; set; }
-        private Repository<Accommodation> accommodationData { get; set; }
-        private Repository<Activity> activityData { get; set; }
+        private trip_planner_austin_hc.Models.Repository<Trip> tripData { get; set; }
+        private trip_planner_austin_hc.Models.Repository<Destination> destinationData { get; set; }
+        private trip_planner_austin_hc.Models.Repository<Accommodation> accommodationData { get; set; }
+        private trip_planner_austin_hc.Models.Repository<Activity> activityData { get; set; }
 
         public TripController(TripContext ctx)
         {
-            tripData = new Repository<Trip>(ctx);
-            destinationData = new Repository<Destination>(ctx);
-            accommodationData = new Repository<Accommodation>(ctx);
-            activityData = new Repository<Activity>(ctx);
+            tripData = new trip_planner_austin_hc.Models.Repository<Trip>(ctx);
+            destinationData = new trip_planner_austin_hc.Models.dataAccess.Repository<Destination>(ctx);
+            accommodationData = new trip_planner_austin_hc.Models.dataAccess.Repository<Accommodation>(ctx);
+            activityData = new trip_planner_austin_hc.Models.Repository<Activity>(ctx);
         }
 
         public RedirectToActionResult Index() => RedirectToAction("Add", new { id = "page1" });
@@ -74,7 +74,7 @@ namespace TripLog.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(TripViewModel vm)
+        public IActionResult Add(trip_planner_austin_hc.Models.Repository<Destination> destinationData, TripViewModel vm)
         {
             if (vm.PageNumber == 1)
             {

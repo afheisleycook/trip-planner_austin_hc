@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using trip_planner_austin_hc.Models.dataAccess;
+using TripLog.Controllers;
 namespace trip_planner_austin_hc.Models
 {
     public class Repository<T> : IRepository<T> where T : class
@@ -45,6 +46,16 @@ namespace trip_planner_austin_hc.Models
                 query = query.OrderBy(options.OrderBy);
 
             return query;
+        }
+
+        public static implicit operator Repository<T>(dataAccess.Repository<Destination> v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static implicit operator Repository<T>(dataAccess.Repository<Accommodation> v)
+        {
+            throw new NotImplementedException();
         }
     }
 
