@@ -23,9 +23,7 @@
 
   <ItemGroup>
     <Folder Include="NewFolder\" />
-    <Folder Include="Views\accomadations\" />
-    <Folder Include="Views\activity\" />
-    <Folder Include="Views\destination\" />
+    <Folder Include="obj\" />
   </ItemGroup>
 
   <ItemGroup>
