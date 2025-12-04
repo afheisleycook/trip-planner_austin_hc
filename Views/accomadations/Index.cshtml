@@ -1,0 +1,34 @@
+﻿@using TripLog.Controllers
+@{
+    ViewBag.Title = "Manage Accommodations";
+    ViewBag.SubHeader = ViewBag.Title;
+}
+
+<div class="m-2">
+    <a asp-action="Add"><b>Add Accommodation</b></a>
+</div>
+
+<form asp-action="Delete">
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th></th>
+</tr>
+</thead>
+<tbody>
+@foreach (Accommodation a in Model)
+{
+    <tr>
+        <td>@a.Name</td>
+        <td>@a.Phone</td>
+        <td>@a.Email</td>
+        <td>
+            <button type="submit" name="id" value="@a.AccommodationId" 
+                    class="btn btn-primary">Delete</button>
+        </td>
+    </tr>
+}
+</tbody>

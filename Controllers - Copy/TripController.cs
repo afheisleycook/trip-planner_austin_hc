@@ -13,7 +13,7 @@ namespace TripLog.Controllers
         public RedirectToActionResult Index() => RedirectToAction("Add", new { id = "page1" });
 
         [HttpGet]
-        public ViewResult Add(string id = "")
+        public ViewResult Add(Repository<Destination> destinationData, string id = "")
         {
             var vm = new TripViewModel();
 
