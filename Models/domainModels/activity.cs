@@ -2,8 +2,12 @@
 
 namespace trip_planner_austin_hc.Models.domainModels
 {
-    public class activity : dataAccess.IRepository<activity>
+    public class activity : Repository<activity>
     {
+        public activity(TripContext context) : base(context)
+        {
+        }
+
         public void Delete(activity entity)
         {
             throw new NotImplementedException();
