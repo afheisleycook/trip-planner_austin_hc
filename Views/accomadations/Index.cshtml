@@ -1,4 +1,5 @@
-﻿@using TripLog.Controllers
+﻿@model IEnumerable<Accommodation>
+
 @{
     ViewBag.Title = "Manage Accommodations";
     ViewBag.SubHeader = ViewBag.Title;
@@ -26,9 +27,11 @@
         <td>@a.Phone</td>
         <td>@a.Email</td>
         <td>
-            <button type="submit" name="id" value="@a.AccommodationId" 
+            <button type="submit" name="id" value="@a.Id" 
                     class="btn btn-primary">Delete</button>
         </td>
     </tr>
 }
 </tbody>
+</table>
+</form>

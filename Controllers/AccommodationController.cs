@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TripLog.Models;
+using trip_planner_austin_hc.Models;
+using trip_planner_austin_hc.Models.dataAccess;
+using trip_planner_austin_hc.Models.domainModels;
 
-namespace TripLog.Controllers
+namespace trip_planner_austin_hc.Controllers
 {
     public class AccommodationController : Controller
     {
         private Repository<Accommodation> data { get; set; }
-        public AccommodationController(TripLogContext ctx) {
+        public AccommodationController(TripContext ctx) {
             data = new Repository<Accommodation>(ctx);
         }
 
@@ -66,7 +68,7 @@ namespace TripLog.Controllers
         {
             var accommodations = data.List(new QueryOptions<Accommodation>
             {
-                Where = a => a.AccommodationId > 0, // don't include default accommodation
+                Where = a => a.Id > 0, // don't include default accommodation
                 OrderBy = a => a.Name
             });
             return accommodations;

@@ -1,5 +1,4 @@
-﻿@using trip_planner_austin_hc.Models.domainModels
-@model IEnumerable<Trip>
+﻿@model IEnumerable<Trip>
 
 @{
     ViewBag.Title = "My Trip Log";
@@ -30,7 +29,7 @@
                 <td>
                     @if (trip.Activities != null && trip.Activities.Any())
                     {
-                        @foreach (var activity in trip.Activities)
+                        @foreach (Activity activity in trip.Activities)
                         {
                             <div>@activity.Name</div>
                         }

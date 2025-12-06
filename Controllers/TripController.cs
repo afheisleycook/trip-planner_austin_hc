@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using NuGet.Protocol;
 using trip_planner_austin_hc.Models;
 using trip_planner_austin_hc.Models.dataAccess;
 using trip_planner_austin_hc.Models.domainModels;
