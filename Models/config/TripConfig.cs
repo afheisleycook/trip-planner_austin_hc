@@ -9,10 +9,10 @@ namespace trip_planner_austin_hc.Models.config
         {
             entity.HasOne(t => t.Destination)
                .WithMany(t => t.Trips)
-                .Ondelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict);
             entity.HasOne(t => t.Accommodation)
                 .WithMany(d => d.Trips)
-                .Ondelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
         
