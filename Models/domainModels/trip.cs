@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using TripLog.Controllers;
 
 namespace trip_planner_austin_hc.Models.domainModels
 {

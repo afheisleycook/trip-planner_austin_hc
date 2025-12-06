@@ -21,32 +21,19 @@
         @foreach (Trip trip in Model)
         {
             <tr>
-                <td>@trip.Destination</td>
-                <td>@trip.StartDate.ToShortDateString()</td>
-                <td>@trip.EndDate.ToShortDateString()</td>
+                <td>@trip.Destination.Name</td>
+                <td>@trip.StartDate?.ToShortDateString()</td>
+                <td>@trip.EndDate?.ToShortDateString()</td>
                 <td>
-                    <div>@trip.Accommodation</div>
-                    @if (!string.IsNullOrEmpty(trip.AccommodationPhone))
-                    {
-                        <div>Phone: @trip.AccommodationPhone</div>
-                    }
-                    @if (!string.IsNullOrEmpty(trip.AccommodationEmail))
-                    {
-                        <div>Email: @trip.AccommodationEmail</div>
-                    }
+                    <div>@trip.Accommodation.Name</div>
                 </td>
                 <td>
-                    @if (!string.IsNullOrEmpty(trip.Activity1))
+                    @if (trip.Activities != null && trip.Activities.Any())
                     {
-                        <div>@trip.Activity1</div>
-                    }
-                    @if (!string.IsNullOrEmpty(trip.Activity2))
-                    {
-                        <div>@trip.Activity2</div>
-                    }
-                    @if (!string.IsNullOrEmpty(trip.Activity3))
-                    {
-                        <div>@trip.Activity3</div>
+                        @foreach (var activity in trip.Activities)
+                        {
+                            <div>@activity.Name</div>
+                        }
                     }
                 </td>
             </tr>

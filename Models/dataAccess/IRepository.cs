@@ -2,7 +2,7 @@
 
 namespace trip_planner_austin_hc.Models
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T : class
     {
         IEnumerable<T> List(QueryOptions<T> options);
         T? Get(int id);

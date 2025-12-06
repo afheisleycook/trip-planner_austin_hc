@@ -1,41 +1,11 @@
-﻿using trip_planner_austin_hc.Models.dataAccess;
-
-namespace trip_planner_austin_hc.Models.domainModels
+﻿namespace trip_planner_austin_hc.Models.domainModels
 {
-    public class activity : Repository<activity>
+    public class Activity
     {
-        public activity(TripContext context) : base(context)
-        {
-        }
-
-        public void Delete(activity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public activity? Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Insert(activity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<activity> List(QueryOptions<activity> options)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(activity entity)
-        {
-            throw new NotImplementedException();
-        }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        
+        // skip navigation property for many-to-many with Trip
+        public ICollection<Trip> Trips { get; set; } = new HashSet<Trip>();
     }
 }
