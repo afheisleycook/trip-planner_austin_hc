@@ -23,13 +23,8 @@ namespace trip_planner_austin_hc.Controllers
 
         public RedirectToActionResult Index() => RedirectToAction("Add", new { id = "page1" });
 
-        public IActionResult Add(string id = "")
-        {
-            return Add(destinationData, id);
-        }
-
         [HttpGet]
-        public IActionResult Add(Repository<Destination> destinationData, string id = "")
+        public IActionResult Add(string id = "")
         {
             var vm = new TripViewModel();
 
@@ -51,6 +46,12 @@ namespace trip_planner_austin_hc.Controllers
             }
             else if (id.ToLower() == "page2")
             {
+                // Ensure TempData has required values from page1
+                if (TempData[nameof(Trip.DestinationId)] == null)
+                {
+                    return RedirectToAction("Add", new { id = "page1" });
+                }
+
                 vm.PageNumber = 2;
 
                 // get destination for display by view (use Peek() so persists in TempData)
@@ -72,7 +73,7 @@ namespace trip_planner_austin_hc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(trip_planner_austin_hc.Models.Repository<Destination> destinationData, TripViewModel vm)
+        public IActionResult Add(TripViewModel vm)
         {
             if (vm.PageNumber == 1)
             {

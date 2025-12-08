@@ -14,6 +14,28 @@
             <h1>My Trip Log</h1>
         </header>
 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Trip" asp-action="Add" asp-route-id="page1">Add Trip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Accommodation" asp-action="Index">Manage Accommodations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Destination" asp-action="Index">Manage Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Activity" asp-action="Index">Manage Activities</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
         <main role="main">
             @* display temporary message if there is one *@
             @if (TempData.Keys.Contains("message"))
