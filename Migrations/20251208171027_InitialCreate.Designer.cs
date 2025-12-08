@@ -12,8 +12,8 @@ using trip_planner_austin_hc.Models;
 namespace trip_planner_austin_hc.Migrations
 {
     [DbContext(typeof(TripContext))]
-    [Migration("20251206181100_UpdateModels")]
-    partial class UpdateModels
+    [Migration("20251208171027_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
